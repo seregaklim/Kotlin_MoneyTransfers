@@ -1,8 +1,15 @@
 fun main () {
-       val amout: Long = 100
-       val minimumMoneyTransferRubles  = 35
-       val convectorRublesToKopecks: Long = amout * 100
+       val amoutUser: Long = 36
+       val userKopecks: Long = amoutUser * 100
+
+       val transferRubles  = 35
+       val transferKopecks = transferRubles * 100
+
        val commission: Double = 0.75/100
-       var result = if (amout < minimumMoneyTransferRubles) {} else  convectorRublesToKopecks * commission
+
+       var result = if ( userKopecks <= transferKopecks) userKopecks - transferKopecks else
+       if (userKopecks >= transferKopecks) transferKopecks* commission
+              else "Недостаточно средств!"
+
        println ("Перевод $result копеек")
 }
